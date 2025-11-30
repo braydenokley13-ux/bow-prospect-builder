@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BOW Prospect Builder</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #0b0d10;
+        font-family: 'Inter', sans-serif;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        width: 100%;
+        padding: 60px 20px;
+        text-align: center;
+        background: linear-gradient(145deg, #0b0d10 40%, #112233 100%);
+        border-bottom: 1px solid #1b2a38;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        background: linear-gradient(90deg, #5ac8fa, #1dd6c9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        color: #d0d5da;
+        font-size: 18px;
+        max-width: 600px;
+        margin: auto;
+        opacity: 0.8;
+    }
+
+    /* FORM CONTAINER */
+    .form-container {
+        max-width: 700px;
+        background: #13161a;
+        margin: 50px auto;
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid #1c2630;
+        box-shadow: 0 0 40px rgba(0,0,0,0.25);
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #5ac8fa;
+    }
+
+    label {
+        font-size: 15px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        color: #b5c2cf;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 22px;
+        background: #0f1214;
+        border: 1px solid #1e2b39;
+        border-radius: 8px;
+        color: white;
+        font-size: 15px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border: 1px solid #33cfff;
+        background: #14191d;
+    }
+
+    textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    /* SUBMIT BUTTON */
+    .submit-btn {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(90deg, #33cfff, #1dd6c9);
+        color: black;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 22px rgba(51, 207, 255, 0.25);
+    }
+
+    /* SUCCESS SCREEN */
+    #success {
+        display: none;
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    #success h2 {
+        font-size: 32px;
+        background: linear-gradient(90deg, #33cfff, #1dd6c9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    #success p {
+        color: #b5c2cf;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>BOW PROSPECT BUILDER</h1>
+    <p>Create your custom player. Our Scouting Engine will generate your combine report, NBA comparison, and claim code.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-container" id="form-area">
+
+    <h2 class="section-title">Player Information</h2>
+
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScJg8P4zUYBO3MG583GwVcE_mV2kS5yx-_2ZIdpCBfbHrwhnQ/formResponse"
+          method="POST"
+          target="_self"
+          onsubmit="showSuccess()">
+
+        <label>Email</label>
+        <input type="email" name="entry.0" required />
+
+        <label>Prospect Name</label>
+        <input type="text" name="entry.1733963257" required />
+
+        <label>Position</label>
+        <select name="entry.813276840" required>
+            <option value="PG">PG</option>
+            <option value="SG">SG</option>
+            <option value="SF">SF</option>
+            <option value="PF">PF</option>
+            <option value="C">C</option>
+        </select>
+
+        <label>Height & Frame</label>
+        <input type="text" name="entry.896327823" placeholder="e.g. 6'6, long wingspan…" required />
+
+        <label>Strengths</label>
+        <textarea name="entry.80591798" required></textarea>
+
+        <label>Weaknesses</label>
+        <textarea name="entry.855119301" required></textarea>
+
+        <label>Calling-Card Skill</label>
+        <input type="text" name="entry.761416803" required />
+
+        <button class="submit-btn" type="submit">SUBMIT PROSPECT</button>
+    </form>
+
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div id="success">
+    <h2>✔ Prospect Submitted</h2>
+    <p>Your combine report will be emailed to you automatically.</p>
+</div>
+
+<script>
+function showSuccess() {
+    setTimeout(() => {
+        document.getElementById("form-area").style.display = "none";
+        document.getElementById("success").style.display = "block";
+    }, 400);
+}
+</script>
+
+</body>
+</html>
