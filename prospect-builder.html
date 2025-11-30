@@ -1,200 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOW Prospect Builder</title>
 
 <style>
     body {
         margin: 0;
-        background: #0b0d10;
         font-family: 'Inter', sans-serif;
+        background: #0D0D12;
         color: white;
-        overflow-x: hidden;
     }
 
-    /* HERO SECTION */
     .hero {
-        width: 100%;
         padding: 60px 20px;
         text-align: center;
-        background: linear-gradient(145deg, #0b0d10 40%, #112233 100%);
-        border-bottom: 1px solid #1b2a38;
+        background: linear-gradient(135deg, #1A1A22, #2D2D3A);
+        border-bottom: 1px solid #4a4a4a;
     }
 
     .hero h1 {
         font-size: 42px;
-        font-weight: 800;
-        letter-spacing: -1px;
-        background: linear-gradient(90deg, #5ac8fa, #1dd6c9);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         margin-bottom: 10px;
+        font-weight: 700;
     }
 
     .hero p {
-        color: #d0d5da;
         font-size: 18px;
-        max-width: 600px;
-        margin: auto;
-        opacity: 0.8;
-    }
-
-    /* FORM CONTAINER */
-    .form-container {
         max-width: 700px;
-        background: #13161a;
-        margin: 50px auto;
-        padding: 40px;
+        margin: 0 auto;
+        opacity: 0.85;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: rgba(255,255,255,0.05);
+        padding: 30px;
         border-radius: 16px;
-        border: 1px solid #1c2630;
-        box-shadow: 0 0 40px rgba(0,0,0,0.25);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .section-title {
-        font-size: 22px;
-        margin-bottom: 20px;
-        font-weight: 700;
-        color: #5ac8fa;
+    .input-group {
+        margin-bottom: 25px;
     }
 
-    label {
-        font-size: 15px;
-        font-weight: 600;
+    .input-group label {
         display: block;
-        margin-bottom: 6px;
-        color: #b5c2cf;
+        margin-bottom: 8px;
+        font-size: 14px;
+        opacity: 0.9;
     }
 
     input, select, textarea {
         width: 100%;
         padding: 14px;
-        margin-bottom: 22px;
-        background: #0f1214;
-        border: 1px solid #1e2b39;
-        border-radius: 8px;
+        border-radius: 10px;
+        border: none;
+        background: #1A1A22;
         color: white;
-        font-size: 15px;
-        outline: none;
-        transition: 0.2s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-        border: 1px solid #33cfff;
-        background: #14191d;
+        font-size: 16px;
     }
 
     textarea {
-        height: 120px;
-        resize: none;
+        resize: vertical;
+        min-height: 90px;
     }
 
-    /* SUBMIT BUTTON */
-    .submit-btn {
+    button {
         width: 100%;
         padding: 16px;
-        background: linear-gradient(90deg, #33cfff, #1dd6c9);
-        color: black;
-        border: none;
-        border-radius: 10px;
         font-size: 18px;
-        font-weight: 800;
+        background: #633CFF;
+        border: none;
+        border-radius: 12px;
+        color: white;
         cursor: pointer;
         transition: 0.25s;
     }
 
-    .submit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 22px rgba(51, 207, 255, 0.25);
+    button:hover {
+        background: #7C55FF;
+        transform: scale(1.02);
     }
 
-    /* SUCCESS SCREEN */
-    #success {
-        display: none;
+    .footer {
         text-align: center;
-        padding: 100px 20px;
-    }
-
-    #success h2 {
-        font-size: 32px;
-        background: linear-gradient(90deg, #33cfff, #1dd6c9);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    #success p {
-        color: #b5c2cf;
-        font-size: 18px;
-        margin-top: 10px;
+        padding: 40px;
+        opacity: 0.65;
     }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
-    <h1>BOW PROSPECT BUILDER</h1>
-    <p>Create your custom player. Our Scouting Engine will generate your combine report, NBA comparison, and claim code.</p>
+    <h1>BOW Prospect Builder</h1>
+    <p>Enter your prospect’s full scouting profile. BOW’s Scouting Engine will generate a real Draft Combine Report, NBA Comparison, projected draft slot, and your claim code.</p>
 </div>
 
-<!-- FORM -->
-<div class="form-container" id="form-area">
+<div class="container">
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScJg8P4zUYBO3MG583GwVcE_mV2kS5yx-_2ZIdpCBfbHrwhnQ/formResponse" method="POST" target="_self">
 
-    <h2 class="section-title">Player Information</h2>
+        <!-- Prospect Name -->
+        <div class="input-group">
+            <label>Prospect Name *</label>
+            <input name="entry.1974849537" required placeholder="Ex: Jalen Thompson">
+        </div>
 
-    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScJg8P4zUYBO3MG583GwVcE_mV2kS5yx-_2ZIdpCBfbHrwhnQ/formResponse"
-          method="POST"
-          target="_self"
-          onsubmit="showSuccess()">
+        <!-- Position -->
+        <div class="input-group">
+            <label>Position *</label>
+            <select name="entry.325650607" required>
+                <option value="">Choose</option>
+                <option value="PG">PG</option>
+                <option value="SG">SG</option>
+                <option value="SF">SF</option>
+                <option value="PF">PF</option>
+                <option value="C">C</option>
+            </select>
+        </div>
 
-        <label>Email</label>
-        <input type="email" name="entry.0" required />
+        <!-- Height & Frame -->
+        <div class="input-group">
+            <label>Height & Frame *</label>
+            <input name="entry.1466772986" required placeholder="6'6, long wingspan, strong frame">
+        </div>
 
-        <label>Prospect Name</label>
-        <input type="text" name="entry.1733963257" required />
+        <!-- Strengths -->
+        <div class="input-group">
+            <label>Strengths *</label>
+            <textarea name="entry.832968028" required placeholder="Elite shooting, great footwork, high IQ..."></textarea>
+        </div>
 
-        <label>Position</label>
-        <select name="entry.813276840" required>
-            <option value="PG">PG</option>
-            <option value="SG">SG</option>
-            <option value="SF">SF</option>
-            <option value="PF">PF</option>
-            <option value="C">C</option>
-        </select>
+        <!-- Weaknesses -->
+        <div class="input-group">
+            <label>Weaknesses *</label>
+            <textarea name="entry.1654236358" required placeholder="Struggles creating separation, inconsistent handle..."></textarea>
+        </div>
 
-        <label>Height & Frame</label>
-        <input type="text" name="entry.896327823" placeholder="e.g. 6'6, long wingspan…" required />
+        <!-- Calling-Card Skill -->
+        <div class="input-group">
+            <label>Calling-Card Skill *</label>
+            <input name="entry.1649871617" required placeholder="Example: Lockdown Defense">
+        </div>
 
-        <label>Strengths</label>
-        <textarea name="entry.80591798" required></textarea>
+        <!-- REQUIRED GOOGLE FIELDS -->
+        <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="partialResponse" value="[null,null,&quot;3652350919570548882&quot;]">
+        <input type="hidden" name="pageHistory" value="0">
+        <input type="hidden" name="fbzx" value="3652350919570548882">
 
-        <label>Weaknesses</label>
-        <textarea name="entry.855119301" required></textarea>
-
-        <label>Calling-Card Skill</label>
-        <input type="text" name="entry.761416803" required />
-
-        <button class="submit-btn" type="submit">SUBMIT PROSPECT</button>
+        <button type="submit">Submit Prospect</button>
     </form>
-
 </div>
 
-<!-- SUCCESS SCREEN -->
-<div id="success">
-    <h2>✔ Prospect Submitted</h2>
-    <p>Your combine report will be emailed to you automatically.</p>
+<div class="footer">
+    BOW Sports Capital © 2025 — Prospect Engine v1.0
 </div>
-
-<script>
-function showSuccess() {
-    setTimeout(() => {
-        document.getElementById("form-area").style.display = "none";
-        document.getElementById("success").style.display = "block";
-    }, 400);
-}
-</script>
 
 </body>
 </html>
